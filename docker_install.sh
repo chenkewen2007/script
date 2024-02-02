@@ -1,7 +1,6 @@
 #createuser:kewen
 
 #!/bin/bash
-
 # 检查是否以root用户运行
 if [ "$(whoami)" != "root" ]; then
     echo "这个脚本需要以root权限运行。"
@@ -30,15 +29,9 @@ systemctl daemon-reload
 systemctl restart docker
 
 #需要更换其他源请参考以下链接
-
 #网易镜像加速：
-
 #http://hub-mirror.c.163.com
-
 #中国科技大学镜像加速：
-
 #https://docker.mirrors.ustc.edu.cn
-
 #腾讯云镜像加速：
-
 #https://mirror.ccs.tencentyun.com
