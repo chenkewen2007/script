@@ -1,6 +1,13 @@
 #createuser:kewen
 
 #!/bin/bash
+
+# 检查是否以root用户运行
+if [ "$(whoami)" != "root" ]; then
+    echo "这个脚本需要以root权限运行。"
+    exit 1
+fi
+
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 
