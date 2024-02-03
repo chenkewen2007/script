@@ -32,7 +32,7 @@ echo "PrintLogDIR = $deleteTaskLog/`date "+%Y-%m-%d %H:%M:%S"`.log"
 # 查询设置的条件相关文件，并将文件列表输出到日志文件中
 find "$deletefilepath1"/* $queryCondition > "$deleteTaskLog/`date "+%Y-%m-%d-%H:%M:%S"`.log"
 
-# 删除设置条件的相关文件
+# 查询设置的条件相关文件，并进行删除
 find "$deletefilepath1"/* $queryCondition -exec rm {} \;
 
 echo "File Delete Done!" # 打印文件删除成功的消息
