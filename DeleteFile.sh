@@ -14,7 +14,7 @@ fi
 deletefilepath1="/home/app/vsftp/Ftpfile/DATA_IMG"
 
 # 设置日志路径
-deleteTaskLog="/var/log/Task/DeleteTask"
+deleteTaskLog="/var/log/task/deleteTask"
 
 # 设置find的查询条件
 queryCondition='-mtime +5 -name "test[1-9]*.txt"'
