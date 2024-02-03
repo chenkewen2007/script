@@ -5,6 +5,11 @@
 # Created Time: 2022.08.30
 #########################################################################
 #!/bin/bash
+# 检查是否以root用户运行
+if [ "$(whoami)" != "root" ]; then
+    echo "这个脚本需要以root权限运行。"
+    exit 1
+fi
 
 # 设置要删除的文件路径
 deletefilepath1="/home/app/vsftp/Ftpfile/DATA_IMG"
@@ -12,8 +17,10 @@ deletefilepath1="/home/app/vsftp/Ftpfile/DATA_IMG"
 # 设置日志路径
 deleteTaskLog="/var/log/Task/DeleteTask"
 
+# 设置find的查询条件
+queryCondition='-mtime +5 -name "test[1-9]*.txt"'
+
 # 开始运行脚本
-echo "Task Name: Delete PATH=$deletefilepath1 before 5 day file or folder" # 打印任务名称和删除路径
 echo "RunDate = `date "+%Y-%m-%d %H:%M:%S"`" # 打印当前运行脚本的日期和时间
 echo "Script Running..." # 打印脚本正在运行的消息
 
@@ -24,9 +31,9 @@ mkdir -p "$deleteTaskLog"
 echo "PrintLogDIR = $deleteTaskLog/`date "+%Y-%m-%d %H:%M:%S"`.log"
 
 # 找到在过去5天内未修改的文件，并将文件列表输出到日志文件中
-find "$deletefilepath1"/* -mtime +5 > "$deleteTaskLog/`date "+%Y-%m-%d%H:%M:%S"`.log"
+find "$deletefilepath1"/* $queryCondition > "$deleteTaskLog/`date "+%Y-%m-%d-%H:%M:%S"`.log"
 
 # 删除在过去5天内未修改的文件
-find "$deletefilepath1"/* -mtime +5 -exec rm {} \;
+find "$deletefilepath1"/* $queryCondition -exec rm {} \;
 
 echo "File Delete Done!" # 打印文件删除成功的消息
