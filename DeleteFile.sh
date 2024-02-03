@@ -30,10 +30,10 @@ mkdir -p "$deleteTaskLog"
 # 打印日志文件的路径
 echo "PrintLogDIR = $deleteTaskLog/`date "+%Y-%m-%d %H:%M:%S"`.log"
 
-# 找到在过去5天内未修改的文件，并将文件列表输出到日志文件中
+# 查询设置的条件相关文件，并将文件列表输出到日志文件中
 find "$deletefilepath1"/* $queryCondition > "$deleteTaskLog/`date "+%Y-%m-%d-%H:%M:%S"`.log"
 
-# 删除在过去5天内未修改的文件
+# 删除设置条件的相关文件
 find "$deletefilepath1"/* $queryCondition -exec rm {} \;
 
 echo "File Delete Done!" # 打印文件删除成功的消息
