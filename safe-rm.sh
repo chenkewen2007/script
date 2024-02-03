@@ -42,7 +42,7 @@ echo "safe-rm安装完成"
 echo "-------------------------------------------------------"
 
 # 6、创建临时文件验证命令是否安装完成
-echo "/tmp目录创建测试文件:'safe-rm-test.txt',无法删除则证明safe-rm安装完成 "
+echo "无法删除测试文件：/tmp/safe-rm-test.txt "
 echo "safe-rm验证文件，此文件无法删除则证明safe-rm安装完成">/tmp/safe-rm-test.txt
 
 echo "safe-rm禁止删除目录或文件配置路径：/etc/safe-rm.conf"
