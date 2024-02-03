@@ -1,8 +1,7 @@
 #########################################################################
 # File Name: DeleteFile.sh
-# Author: kewen
+# Createuser: kewen
 # mail: chenkewen2007@foxmail.com
-# Created Time: 2022.08.30
 #########################################################################
 #!/bin/bash
 # 检查是否以root用户运行
