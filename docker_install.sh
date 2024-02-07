@@ -24,9 +24,9 @@ cat > /etc/docker/daemon.json << EOF
 }
 EOF
 
-systemctl daemon-reload
+sudo systemctl daemon-reload
 
-systemctl restart docker
+sudo systemctl restart docker
 
 #需要更换其他源请参考以下链接
 #网易镜像加速：
