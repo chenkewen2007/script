@@ -28,3 +28,8 @@ timeout /t 10 /nobreak
 
 : java -Dfile.encoding=UTF-8 -jar yourJarFile.jar
 : -D表示定义一个系统属性。在这种情况下，file.encoding=UTF-8设置了文件编码为UTF-8。主要适用于代码中有中文的情况
+
+: java日志另存为指定文件（用于未安装log4j之类日志分析插件的时候）
+: java -jar your-app.jar > logs/your-app.log  2>&1
+: java日志另存为指定文件，只输出错误日志
+：java -jar your-app.jar 2> logs/your-app.log
