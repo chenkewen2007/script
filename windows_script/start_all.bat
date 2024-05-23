@@ -1,14 +1,13 @@
 title 一键启动XXX项目jar包
-：chcp 65001
-：将命令提示符的代码页设置为65001（UTF-8）。这确保命令提示符可以正确处理UTF-8编码的字符。
+: chcp 65001
+: 将命令提示符的代码页设置为65001（UTF-8）。这确保命令提示符可以正确处理UTF-8编码的字符。
 
-: 
-rem start "nacos" cmd /k "D:\software\nacos-1.3\bin\startup.cmd"
+: rem start "nacos" cmd /k "D:\software\nacos-1.3\bin\startup.cmd"
 : 30秒后启动下一个配置
-rem timeout /t 30 /nobreak
+: rem timeout /t 30 /nobreak
 
 
-:新开一个窗口，标题为gateway
+: 新开一个窗口，标题为gateway
 start "gateway" cmd /k java -jar gateway-zuul.jar
 : 40秒后启动下一个配置
 timeout /t 40 /nobreak
@@ -27,5 +26,5 @@ timeout /t 10 /nobreak
 : java 手动配置JDK登录
 
 
-:java -Dfile.encoding=UTF-8 -jar yourJarFile.jar
-:-D表示定义一个系统属性。在这种情况下，file.encoding=UTF-8设置了文件编码为UTF-8。主要适用于代码中有中文的情况
+: java -Dfile.encoding=UTF-8 -jar yourJarFile.jar
+: -D表示定义一个系统属性。在这种情况下，file.encoding=UTF-8设置了文件编码为UTF-8。主要适用于代码中有中文的情况
